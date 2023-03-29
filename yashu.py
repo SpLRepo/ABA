@@ -39,8 +39,10 @@ async def cmu_(_, cmu):
         um = (await _.get_users(user_id)).mention
         tm = (await _.get_users(tar_id)).mention
         txt = f"{um}, all of your admin rights have been taken back due to restriction of {tm}.\n\nKindly inform {men}to get your rights back !"
-    except:
-        txt = f"{tm} is restricted by {um}.\n\n{men}I can't demote them !"
+    except Exception as e:
+        um = (await _.get_users(user_id)).mention
+        tm = (await _.get_users(tar_id)).mention
+        txt = f"{tm} is restricted by {um}.\n\n{men}I can't demote them !\n\nReason : {e}"
     await _.send_message(cmu.chat.id, txt)
 
 app = yvi
