@@ -8,6 +8,7 @@ import traceback
 from inspect import getfullargspec
 from io import StringIO
 from time import time
+from pyrogram.types import ChatPermissions as cp
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 
@@ -39,7 +40,7 @@ async def cmu_(_, cmu):
         await _.promote_chat_member(cmu.chat.id, user_id, cp())
         txt = f"{um}, all of your admin rights have been taken back due to restriction of {tm}.\n\nKindly inform {men}to get your rights back !"
     except Exception as e:
-        txt = f"{tm} is restricted by {um}.\n\n{men}I can't demote them !\n\nReason : {e}"
+        txt = f"{tm} is restricted by {um}.\n\n{men}I can't demote {um} !\n\nReason : {e}"
     await _.send_message(cmu.chat.id, txt)
 
 app = yvi
