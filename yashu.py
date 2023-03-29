@@ -32,6 +32,4 @@ async def cmu_(_, cmu):
 
 yvi.start()
 print("Bot started !")
-idle()
-    
-        
+idle()          
