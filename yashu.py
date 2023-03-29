@@ -19,10 +19,13 @@ async def cmu_(_, cmu):
         return
     if (not cmu.old_chat_member and not cmu.new_chat_member):
         return
-    if (not cmu.old_chat_member.restricted_by and not cmu.new_chat_member.restricted_by):
-        return
-    x = cmu.old_chat_member.restricted_by or cmu.new_chat_member.restricted_by
-    user_id = x.id
+    if cmu.old_chat_member:
+        y = cmu.old_chat_member.restricted_by if cmu.old_chat_member.restricted_by else None
+    else:
+        y = cmu.new_chat_member.restricted_by if cmu.new_chat_member.restricted_by else None
+    if not y:
+        return 
+    user_id = y.id
     tar_id = cmu.old_chat_member.user.id or cmu.new_chat_member.user.id
     if user_id in ADMINS:
         return
