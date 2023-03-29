@@ -245,11 +245,11 @@ async def shellrunner(client, message):
         await edit_or_reply(message, text="**OUTPUT: **\n`No output`")
 
 yvi.start()
-    for x in admins:
-        try:
-            yvi.send_message(x, "Bot Started !")
-        except:
-            print("ADMIN USERS MUST START THE BOT !")
-            sys.exit() 
+for x in admins:
+    try:
+        yvi.send_message(x, "Bot Started !")
+    except:
+        print("ADMIN USERS MUST START THE BOT !")
+        sys.exit() 
 print("Bot Started !")
 idle()          
