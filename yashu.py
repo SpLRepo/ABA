@@ -8,7 +8,7 @@ import traceback
 from inspect import getfullargspec
 from io import StringIO
 from time import time
-from pyrogram.types import ChatPermissions as cp
+from pyrogram.types import ChatPrivileges as cp
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 
