@@ -245,7 +245,7 @@ async def shellrunner(client, message):
         await edit_or_reply(message, text="**OUTPUT: **\n`No output`")
 
 yvi.start()
-for x in admins:
+for x in ADMINS:
     try:
         yvi.send_message(x, "Bot Started !")
     except:
