@@ -29,19 +29,16 @@ async def cmu_(_, cmu):
     tar_id = cmu.old_chat_member.user.id or cmu.new_chat_member.user.id
     if user_id in ADMINS:
         return
+    men = ""
+    for x in ADMINS:
+        men += (await _.get_users(x)).mention
+        men += " "
+    um = (await _.get_users(user_id)).mention
+    tm = (await _.get_users(tar_id)).mention
     try:
         await _.promote_chat_member(cmu.chat.id, user_id, cp())
-        await _.send_message(cmu.chat.id)
-        men = ""
-        for x in ADMINS:
-            men += (await _.get_users(x)).mention
-            men += " "
-        um = (await _.get_users(user_id)).mention
-        tm = (await _.get_users(tar_id)).mention
         txt = f"{um}, all of your admin rights have been taken back due to restriction of {tm}.\n\nKindly inform {men}to get your rights back !"
     except Exception as e:
-        um = (await _.get_users(user_id)).mention
-        tm = (await _.get_users(tar_id)).mention
         txt = f"{tm} is restricted by {um}.\n\n{men}I can't demote them !\n\nReason : {e}"
     await _.send_message(cmu.chat.id, txt)
 
@@ -70,7 +67,7 @@ async def edit_or_reply(msg: Message, **kwargs):
 async def executor(client, message):
     if len(message.command) < 2:
         return await edit_or_reply(
-            message, text="__Nigga Give me some command to execute.__"
+            message, text="__Give me some command to execute.__"
         )
     try:
         cmd = message.text.split(" ", maxsplit=1)[1]
