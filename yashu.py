@@ -32,8 +32,13 @@ async def cmu_(_, cmu):
         return
     men = ""
     for x in ADMINS:
-        men += (await _.get_users(x)).mention
-        men += " "
+        try:
+            men += (await _.get_users(x)).mention
+            men += " "
+        except:
+            pass
+    if not men:
+        men = "Owner "
     um = (await _.get_users(user_id)).mention
     tm = (await _.get_users(tar_id)).mention
     try:
