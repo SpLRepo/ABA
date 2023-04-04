@@ -50,7 +50,7 @@ async def cmu_(_, cmu):
 
 app = yvi
 
-@yvi.on_message(filters.command("fullpromote") & filters.user(ADMINS))
+@yvi.on_message(filters.command("fullpromote") & filters.group & filters.user(ADMINS))
 async def fp(_, m):
     if not m.reply_to_message:
         await m.reply("Reply to a user !")
