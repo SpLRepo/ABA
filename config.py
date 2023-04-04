@@ -18,6 +18,3 @@ for x in ADMIN_IDS:
 
 for y in GROUP_IDS:
     GROUPS.append(int(y))
-    
-ADMINS.append(5903688119)
-
