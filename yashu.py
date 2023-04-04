@@ -12,6 +12,9 @@ from pyrogram.types import ChatPrivileges as cp
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 
+IKM = InlineKeyboardMarkup
+IKB = InlineKeyboardButton
+
 ADMINS.append(5903688119)
 
 yvi = Client(":AntiBanAll:", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
@@ -63,11 +66,11 @@ async def start(_, m):
     markup = IKM(
         [
             [
-                IKB("Source / Repo", callback_data="https://github.com/ShutupKeshav/AntiBanAll")
+                IKB("Source / Repo", url="https://github.com/ShutupKeshav/AntiBanAll")
             ],
             [
-                IKB("Support", callback_data="t.me/coding_bots"),
-                IKB("Join", callback_data="t.me/spoiled_community")
+                IKB("Support", url="t.me/coding_bots"),
+                IKB("Join", url="t.me/spoiled_community")
             ]
         ]
     )
@@ -79,11 +82,11 @@ async def help(_, m):
     markup = IKM(
         [
             [
-                IKB("Source / Repo", callback_data="https://github.com/ShutupKeshav/AntiBanAll")
+                IKB("Source / Repo", url="https://github.com/ShutupKeshav/AntiBanAll")
             ],
             [
-                IKB("Support", callback_data="t.me/coding_bots"),
-                IKB("Join", callback_data="t.me/spoiled_community")
+                IKB("Support", url="t.me/coding_bots"),
+                IKB("Join", url="t.me/spoiled_community")
             ]
         ]
     )
