@@ -14,39 +14,33 @@ from pyrogram.types import (InlineKeyboardButton,
 
 yvi = Client(":AntiBanAll:", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
+MEN = ""
+
 @yvi.on_chat_member_updated()
 async def cmu_(_, cmu):
+    global MEN
+    if not MEN:
+        for x in ADMINS:
+            try:
+                MEN += (await _.get_users(x)).mention
+                MEN += " "
+            except:
+                pass
+    if not MEN:
+        MEN = "Owner "
     if not cmu.chat.id in GROUPS:
         return
-    if (not cmu.old_chat_member and not cmu.new_chat_member):
+    if not cmu.new_chat_member:
         return
-    if cmu.old_chat_member:
-        y = cmu.old_chat_member.restricted_by if cmu.old_chat_member.restricted_by else None
-    else:
-        y = cmu.new_chat_member.restricted_by if cmu.new_chat_member.restricted_by else None
-    if not y:
-        return 
-    user_id = y.id
-    tar_id = cmu.old_chat_member.user.id or cmu.new_chat_member.user.id
-    if user_id in ADMINS:
+    if not cmu.new_chat_member.status.name == "BANNED":
         return
-    men = ""
-    for x in ADMINS:
-        try:
-            men += (await _.get_users(x)).mention
-            men += " "
-        except:
-            pass
-    if not men:
-        men = "Owner "
-    um = (await _.get_users(user_id)).mention
-    tm = (await _.get_users(tar_id)).mention
+    banner_id = cmu.from_user.id
+    victim_id = cmu.new_chat_member.user.id
+    banner_men = cmu.from_user.mention
+    victim_men = cmu.new_chat_member.user.mention
     try:
-        await _.promote_chat_member(cmu.chat.id, user_id, cp())
-        txt = f"{um}, all of your admin rights have been taken back due to restriction of {tm}.\n\nKindly inform {men}to get your rights back !"
-    except Exception as e:
-        txt = f"{tm} is restricted by {um}.\n\n{men}I can't demote {um} !\n\nReason : {e}"
-    await _.send_message(cmu.chat.id, txt)
+        await _.promote_chat_member(cmu.chat.id, banner_id, cp())
+        await _.send_message(cmu.chat.id, f"
 
 app = yvi
 
