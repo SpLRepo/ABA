@@ -61,6 +61,22 @@ async def start(_, m):
     )
     txt = f"Hello {m.from_user.mention}, I'm Anti BanAll bot, Helps to protect groups from banning all !\n\nUse /help to check how I works !\n\nCreate your own bot using the source code below !"
     await m.reply(txt, reply_markup=markup)
+    
+@yvi.on_message(filters.command("help") & filters.private)
+async def help(_, m):
+    markup = IKM(
+        [
+            [
+                IKB("Source / Repo", callback_data="https://github.com/ShutupKeshav/AntiBanAll")
+            ],
+            [
+                IKB("Support", callback_data="t.me/coding_bots"),
+                IKB("Join", callback_data="t.me/spoiled_community")
+            ]
+        ]
+    )
+    txt = f"**How I Work ?**\n\n♦️ First of all demote every admin of your group.\n♦️ promote me with all rights.\n♦️ promote your second account with me using /fullpromote.\n♦️ now switch to your second account and promote your group members.\n**Done !**"
+    await m.reply(txt, reply_markup=markup)
 
 SUDOERS = filters.user(ADMINS)
 
