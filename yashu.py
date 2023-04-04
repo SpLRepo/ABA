@@ -46,6 +46,22 @@ async def cmu_(_, cmu):
 
 app = yvi
 
+@yvi.on_message(filters.command("start") & filters.private)
+async def start(_, m):
+    markup = IKM(
+        [
+            [
+                IKB("Source / Repo", callback_data="https://github.com/ShutupKeshav/AntiBanAll")
+            ],
+            [
+                IKB("Support", callback_data="t.me/coding_bots"),
+                IKB("Join", callback_data="t.me/spoiled_community")
+            ]
+        ]
+    )
+    txt = f"Hello {m.from_user.mention}, I'm Anti BanAll bot, Helps to protect groups from banning all !\n\nUse /help to check how I works !\n\nCreate your own bot using the source code below !"
+    await m.reply(txt, reply_markup=markup)
+
 SUDOERS = filters.user(ADMINS)
 
 async def aexec(code, client, message):
