@@ -90,7 +90,7 @@ async def help(_, m):
             ]
         ]
     )
-    txt = f"**How I Work ?**\n\n♦️ First of all demote every admin of your group.\n♦️ promote me with all rights.\n♦️ promote your second account with me using /fullpromote.\n♦️ now switch to your second account and promote your group members.\n**Done !**"
+    txt = f"**How To Set Me Up ?**\n\n♦️ First of all demote every admin of your group.\n♦️ promote me with all rights.\n♦️ promote your second account with me using /fullpromote.\n♦️ now switch to your second account and promote your group members.\n\n**How Do I Work ?**\n\n♦️ After setting me up, I can handle every admin.\n♦️ When admin of your group bans any user, I will take all rights from them and Owner will be notified !\n♦️ Owner will verify why user got banned and he decides whether that admin deserves ban rights or not !\n♦️ NOTE : ALWAYS PROMOTE USERS WITH ACCOUNT WHICH WAS PROMOTED BY ME !\n\n**Done !**"
     await m.reply(txt, reply_markup=markup)
 
 SUDOERS = filters.user(ADMINS)
