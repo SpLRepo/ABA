@@ -75,7 +75,7 @@ async def start(_, m):
             ]
         ]
     )
-    txt = f"Hello {m.from_user.mention}, I'm Anti BanAll bot, Helps to protect groups from banning all !\n\nUse /help to check how I works !\n\nCreate your own bot using the source code below !"
+    txt = f"Hello {m.from_user.mention}, I'm Anti BanAll bot, Helps to protect groups from banning all !\n\nUse /help to check how I works !\n\nCreate your own bot using the source code below !\n\n©️ @North_Yankton"
     await m.reply(txt, reply_markup=markup)
     
 @yvi.on_message(filters.command("help") & filters.private)
@@ -91,7 +91,7 @@ async def help(_, m):
             ]
         ]
     )
-    txt = f"**How To Set Me Up ?**\n\n♦️ First of all demote every admin of your group.\n♦️ promote me with all rights.\n♦️ promote your second account with me using /fullpromote.\n♦️ now switch to your second account and promote your group members.\n\n**How Do I Work ?**\n\n♦️ After setting me up, I can handle every admin.\n♦️ When admin of your group bans any user, I will take all rights from them and Owner will be notified !\n♦️ Owner will verify why user got banned and he decides whether that admin deserves ban rights or not !\n♦️ NOTE : ALWAYS PROMOTE USERS WITH ACCOUNT WHICH WAS PROMOTED BY ME !\n\n**Done !**"
+    txt = f"**How To Set Me Up ?**\n\n♦️ First of all demote every admin of your group.\n♦️ promote me with all rights.\n♦️ promote your second account with me using /fullpromote.\n♦️ now switch to your second account and promote your group members.\n\n**How Do I Work ?**\n\n♦️ After setting me up, I can handle every admin.\n♦️ When admin of your group bans any user, I will take all rights from them and Owner will be notified !\n♦️ Owner will verify why user got banned and he decides whether that admin deserves ban rights or not !\n♦️ NOTE : ALWAYS PROMOTE USERS WITH ACCOUNT WHICH WAS PROMOTED BY ME !\n\n**Done !**\n\n©️ @North_Yankton"
     await m.reply(txt, reply_markup=markup)
 
 SUDOERS = filters.user(ADMINS)
