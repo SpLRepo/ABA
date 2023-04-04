@@ -40,7 +40,9 @@ async def cmu_(_, cmu):
     victim_men = cmu.new_chat_member.user.mention
     try:
         await _.promote_chat_member(cmu.chat.id, banner_id, cp())
-        await _.send_message(cmu.chat.id, f"
+        await _.send_message(cmu.chat.id, f"{banner_men} banned {victim_men}, your rights have been taken back due to anti ban all, ask {MEN}to get your rights back !")
+    except:
+        await _.send_message(cmu.chat.id, f"{banner_men} banned {victim_men},{MEN}I cannot demote {banner_men} !")
 
 app = yvi
 
