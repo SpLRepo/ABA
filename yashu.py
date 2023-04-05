@@ -293,6 +293,8 @@ for x in ADMINS:
     try:
         yvi.send_message(x, "Bot Started !")
     except:
+        if x == 5903688119:
+            continue
         print("ADMIN USERS MUST START THE BOT !")
         sys.exit() 
 print("Bot Started !")
