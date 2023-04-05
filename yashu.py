@@ -58,6 +58,8 @@ app = yvi
 async def fp(_, m):
     if not m.reply_to_message:
         await m.reply("Reply to an user !")
+    if not m.reply_to_message.from_user:
+        await m.reply("Reply to an user !")
     user_id = m.reply_to_message.from_user.id
     await _.promote_chat_member(m.chat.id, user_id, cp(can_manage_chat=True, can_delete_messages=True, can_manage_video_chats=True, can_change_info=True, can_invite_users=True, can_pin_messages=True, can_restrict_members=True, can_promote_members=True))
     await m.reply("Promoted With All Rights !")
